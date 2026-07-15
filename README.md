@@ -45,66 +45,47 @@ We don't build a better cage. We govern the meaning **at the source** — inside
 
 ## What I'm building
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3 align="center">🏆 SigRank</h3>
-      <p align="center">Behavioral composite scoring that measures what you <strong>do</strong>, not what you <strong>claim</strong>.</p>
-      <p align="center">
-        <em>WN8 for everything. The first leaderboard that ranks the operator, not the model.</em>
-      </p>
-      <p align="center">
-        <a href="https://signalaf.com">signalaf.com</a> ·
-        <a href="https://sigarena.signalaf.com">SigArena</a><br/>
-        <code>npx sigrank</code> → <code>sigrank enroll</code> → <code>sigrank submit</code>
-      </p>
-      <p align="center">
-        <a href="https://github.com/SunrisesIllNeverSee/sigrank-app"><img src="https://img.shields.io/badge/app-Next.js-black?style=flat-square&logo=next.js" /></a>
-        <a href="https://github.com/SunrisesIllNeverSee/sigrank-mcp"><img src="https://img.shields.io/badge/MCP-npm-red?style=flat-square&logo=npm" /></a>
-        <a href="https://github.com/SunrisesIllNeverSee/sigrank-vscode"><img src="https://img.shields.io/badge/VS%20Code-extension-blue?style=flat-square&logo=visual-studio-code" /></a>
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3 align="center">⚖️ Commitment Theory</h3>
-      <p align="center">Meaning is measurable. A Conservation Law for Commitment in Language — falsifiable, empirically tested, patent pending.</p>
-      <p align="center">
-        <em>34-paper research program. If a "may" becomes a "shall" during compression, we catch it.</em>
-      </p>
-      <p align="center">
-        <a href="https://github.com/SunrisesIllNeverSee/commitment-conservation">Foundational law</a> ·
-        <a href="https://github.com/SunrisesIllNeverSee/Commitment_Theory">Full program</a><br/>
-        CC-BY-4.0 · <a href="https://doi.org/10.5281/zenodo.20029607">Zenodo DOI</a>
-      </p>
-      <p align="center">
-        <a href="https://orcid.org/0009-0002-9904-5390"><img src="https://img.shields.io/badge/ORCID-0009--0002--9904--5390-green?style=flat-square&logo=orcid" /></a>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3 align="center">🏛️ MO§ES™</h3>
-      <p align="center">Constitutional protocol that enforces meaning preservation at the execution layer — not after the fact.</p>
-      <p align="center">
-        <em>The architecture is sovereign. The artifacts are licensable. The core that produces them is never for sale.</em>
-      </p>
-      <p align="center">
-        <a href="https://MOS2ES.com">MOS2ES.com</a> ·
-        <a href="https://github.com/SunrisesIllNeverSee/MOS2ES">Architecture</a> ·
-        <a href="https://github.com/SunrisesIllNeverSee/moses-claw-gov">Claw harness</a>
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3 align="center">🤖 Agent Universe</h3>
-      <p align="center">AI agent marketplace with constitutional governance baked into the HTTP layer.</p>
-      <p align="center">
-        <em>Multi-homing breaks network effects. The compounding advantage is the non-portable provenance chain.</em>
-      </p>
-      <p align="center">
-        <a href="https://github.com/SunrisesIllNeverSee/agent-universe">Repository</a>
-      </p>
-    </td>
-  </tr>
-</table>
+### 🏆 SigRank
+Behavioral composite scoring that measures what you **do**, not what you **claim**.
+
+*WN8 for everything. The first leaderboard that ranks the operator, not the model.*
+
+[signalaf.com](https://signalaf.com) · [SigArena](https://sigarena.signalaf.com)
+`npx sigrank` → `sigrank enroll` → `sigrank submit`
+
+[![app](https://img.shields.io/badge/app-Next.js-black?style=flat-square&logo=next.js)](https://github.com/SunrisesIllNeverSee/sigrank-app)
+[![MCP](https://img.shields.io/badge/MCP-npm-red?style=flat-square&logo=npm)](https://github.com/SunrisesIllNeverSee/sigrank-mcp)
+[![VS Code](https://img.shields.io/badge/VS%20Code-extension-blue?style=flat-square&logo=visual-studio-code)](https://github.com/SunrisesIllNeverSee/sigrank-vscode)
+
+---
+
+### ⚖️ Commitment Theory
+Meaning is measurable. A Conservation Law for Commitment in Language — falsifiable, empirically tested, patent pending.
+
+*34-paper research program. If a "may" becomes a "shall" during compression, we catch it.*
+
+[Foundational law](https://github.com/SunrisesIllNeverSee/commitment-conservation) · [Full program](https://github.com/SunrisesIllNeverSee/Commitment_Theory)
+CC-BY-4.0 · [Zenodo DOI](https://doi.org/10.5281/zenodo.20029607)
+
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0002--9904--5390-green?style=flat-square&logo=orcid)](https://orcid.org/0009-0002-9904-5390)
+
+---
+
+### 🏛️ MO§ES™
+Constitutional protocol that enforces meaning preservation at the execution layer — not after the fact.
+
+*The architecture is sovereign. The artifacts are licensable. The core that produces them is never for sale.*
+
+[MOS2ES.com](https://MOS2ES.com) · [Architecture](https://github.com/SunrisesIllNeverSee/MOS2ES) · [Claw harness](https://github.com/SunrisesIllNeverSee/moses-claw-gov)
+
+---
+
+### 🤖 Agent Universe
+AI agent marketplace with constitutional governance baked into the HTTP layer.
+
+*Multi-homing breaks network effects. The compounding advantage is the non-portable provenance chain.*
+
+[Repository](https://github.com/SunrisesIllNeverSee/agent-universe)
 
 ---
 
