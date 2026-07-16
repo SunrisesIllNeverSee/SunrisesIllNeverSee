@@ -17,8 +17,7 @@
 ---
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SunrisesIllNeverSee&show_icons=true&hide_border=true&theme=dark&title_color=c4923a&icon_color=8ae89a&text_color=e0e0d0&bg_color=0a0a0a" height="170" alt="GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SunrisesIllNeverSee&layout=compact&hide_border=true&theme=dark&title_color=c4923a&text_color=e0e0d0&bg_color=0a0a0a" height="170" alt="Top languages" />
+  <img src="metrics.svg" width="640" alt="GitHub metrics" />
 </div>
 
 ---
@@ -39,7 +38,9 @@
 
 **MO§ES™ is the engine. SIGRANK + AQUA are the wedges. SIGNOMY is the governed economy.**
 
-We don't build a better cage. We govern the meaning **at the source** — inside the token-generation loop, before a rogue call forms. Brain, not bouncer. Fluid intellect, not rigid straitjackets. Process continuity — steers back, never halts.
+We govern meaning **at the source** — inside the token-generation loop, before a rogue call forms. Brain, not bouncer. Process continuity — steers back, never halts.
+
+> **Currently shipping:** 27 operators on the SigRank board in 48 hours. GitHub outreach campaign live. `sigrank@0.0.177` on npm.
 
 ---
 
@@ -56,6 +57,15 @@ Behavioral composite scoring that measures what you **do**, not what you **claim
 [![app](https://img.shields.io/badge/app-Next.js-black?style=flat-square&logo=next.js)](https://github.com/SunrisesIllNeverSee/sigrank-app)
 [![MCP](https://img.shields.io/badge/MCP-npm-red?style=flat-square&logo=npm)](https://github.com/SunrisesIllNeverSee/sigrank-mcp)
 [![VS Code](https://img.shields.io/badge/VS%20Code-extension-blue?style=flat-square&logo=visual-studio-code)](https://github.com/SunrisesIllNeverSee/sigrank-vscode)
+
+---
+
+### 🎯 signa
+Interactive coaching agent that reads your token logs, builds a taste profile, and coaches your cascade.
+
+*The metabolic panel to SigRank's calorie counter.*
+
+[Repository](https://github.com/SunrisesIllNeverSee/signa) · `npx signa`
 
 ---
 
