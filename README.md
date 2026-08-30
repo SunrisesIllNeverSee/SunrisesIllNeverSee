@@ -45,7 +45,7 @@ MO§ES™  →  Upsilon  →  SigRank | SignalAF
 
 Content-free telemetry: four token pillars (INPUT, OUTPUT, CACHE READ, CACHE WRITE). No prompts. No outputs. No PII. Just counts.
 
-> **Currently shipping:** 1,649 operators ranked on the SigRank board. `sigrank@1.0.8` on npm. 41 AI evaluation pages live across mos2es.org, signalaf.com, and sigeconomy.com. Enterprise B2B pilot in progress.
+> **Currently shipping:** 1,498 seeded operators on the SigRank board. 50 users. `sigrank@1.0.8` on npm. 41 AI evaluation pages live across mos2es.org, signalaf.com, and sigeconomy.com. Enterprise B2B pilot in progress.
 
 ---
 
@@ -141,7 +141,7 @@ Governed AI agent marketplace with constitutional governance baked into the HTTP
 | 🔬 **Zenodo DOIs** | [10.5281/zenodo.20029607](https://doi.org/10.5281/zenodo.20029607) · [10.5281/zenodo.19105225](https://doi.org/10.5281/zenodo.19105225) · [10.5281/zenodo.20031715](https://doi.org/10.5281/zenodo.20031715) |
 | 🎓 **ORCID** | [0009-0002-9904-5390](https://orcid.org/0009-0002-9904-5390) |
 | 🏢 **Entity** | Ello Cello LLC |
-| 📊 **Operators ranked** | 1,649 on the SigRank board |
+| 📊 **Operators ranked** | 1,498 seeded operators + 50 users on the SigRank board |
 | 🌐 **Live domains** | signalaf.com · sigeconomy.com · mos2es.org · signomy.xyz · mos2es.xyz |
 | 🧪 **Coherence stress test** | 41% baseline → 80–85% measured (5-phase, rival AI architectures) |
 | 🎙️ **Live demos** | [KASSA voice AI](https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html) · [Signomy](https://signomy.xyz) |
