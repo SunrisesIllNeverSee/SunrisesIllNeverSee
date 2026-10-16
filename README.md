@@ -2,59 +2,38 @@
   <img src="banner.svg" width="880" alt="djm — SigRank SignalAF" />
 </div>
 
-<br/>
+## Build, measure, publish
 
-<div align="center">
+I build tools for AI operator token measurement and governance. Start with the live product, run the local tool, or explore the implementation:
 
-[![X](https://img.shields.io/badge/%40burnmydays-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/burnmydays)
-[![signalaf.com](https://img.shields.io/badge/signalaf.com-c4923a?style=for-the-badge&logoColor=white)](https://signalaf.com)
-[![sigeconomy.com](https://img.shields.io/badge/sigeconomy.com-1a1a2e?style=for-the-badge&logoColor=white)](https://sigeconomy.com)
-[![mos2es.org](https://img.shields.io/badge/mos2es.org-0a0a0a?style=for-the-badge&logoColor=white)](https://mos2es.org)
-[![signomy.xyz](https://img.shields.io/badge/signomy.xyz-2d4a3e?style=for-the-badge&logoColor=white)](https://signomy.xyz)
-[![ORCID](https://img.shields.io/badge/ORCID-0009--0002--9904--5390-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0002-9904-5390)
-[![npm](https://img.shields.io/badge/npm-sigrank-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/sigrank)
+- **[Use SignalAF / SigRank](https://signalaf.com)** — leaderboard, personal profiles, Compare, and Hall of Signal.
+- **[Run the CLI or connect an AI client](https://github.com/SunrisesIllNeverSee/sigrank-mcp)** — local token telemetry, terminal dashboard, and MCP tools.
+- **[Explore the web app source](https://github.com/SunrisesIllNeverSee/sigrank-app)** — application, public API, and signed submission flow.
 
-</div>
+```bash
+npx sigrank
+```
 
----
-
-<div align="center">
-  <img src="metrics.svg" width="640" alt="GitHub metrics" />
-</div>
-
----
+[![npm](https://img.shields.io/npm/v/sigrank.svg?style=flat-square)](https://www.npmjs.com/package/sigrank)
+[![X](https://img.shields.io/badge/X-%40burnmydays-111111?style=flat-square&logo=x)](https://x.com/burnmydays)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0002--9904--5390-A6CE39?style=flat-square&logo=orcid)](https://orcid.org/0009-0002-9904-5390)
 
 ## The architecture
 
-```
-MO§ES™  →  Upsilon  →  SigRank | SignalAF
-  │           │            │
-  │           │            ├── signalaf.com — public leaderboard + proof surface
-  │           │            ├── sigeconomy.com — competitive operator-ranking arena
-  │           │            └── npx sigrank — CLI + MCP + TUI
-  │           │
-  │           └── Enterprise measurement engine (content-free token telemetry)
-  │
-  ├── mos2es.org — governance framework + methodology
-  ├── enterprise.mos2es.org — enterprise B2B pilot
-  ├── mcp.mos2es.org — MCP server
-  └── signomy.xyz — governed agent marketplace
-```
+**MO§ES™ governs. Upsilon measures. SigRank publishes the public leaderboard and proof surface on SignalAF.** [TTEOP](https://github.com/SunrisesIllNeverSee/otep-spec) defines the protocol semantics.
 
-**MO§ES™ is the governance framework. Upsilon is the measurement engine. SigRank is the public proof surface. SignalAF is the distribution brand.**
+Measurement uses four token pillars: input, output, cache-write, and cache-read. Prompt text, response text, and source code are not required for ranked telemetry. Signed submissions also carry identity, device/signature, platform, and report metadata; see the [submission privacy details](https://github.com/SunrisesIllNeverSee/sigrank-mcp#privacy).
 
-Content-free telemetry: four token pillars (INPUT, OUTPUT, CACHE READ, CACHE WRITE). No prompts. No outputs. No PII. Just counts.
-
-> **Currently shipping:** 1,498 seeded operators on the SigRank board. 50 users. `sigrank@1.0.8` on npm. 41 AI evaluation pages live across mos2es.org, signalaf.com, and sigeconomy.com. Enterprise B2B pilot in progress.
+The current package version is shown in the npm badge above. See the [live board](https://signalaf.com/board/all) for scored operators; directory profiles and registered accounts are separate counts.
 
 ---
 
 ## What I'm building
 
 ### 🏆 SigRank SignalAF
-AI operator evaluation — measures how effectively humans use AI, not how good the AI is.
+Explore AI operator token-processing patterns, calculated from four token counts. The metrics do not establish model quality, work quality, productivity, or business outcomes.
 
-*The first leaderboard that ranks the operator, not the model. Yield (Υ) = (cache_read × output) / input².*
+*Yield (Υ) = (cache_read × output) / input². The server verifies and re-scores submitted telemetry.*
 
 | Surface | URL | What |
 |---------|-----|------|
@@ -116,21 +95,15 @@ Governed AI agent marketplace with constitutional governance baked into the HTTP
 
 ---
 
-## The ecosystem
+## More projects
 
-| | Project | What it does | |
-|:---:|---------|-------------|:---:|
-| 🏆 | **[SigRank](https://signalaf.com)** | AI operator leaderboard — measures what you do, not what you claim | `npx sigrank` |
-| 📊 | **[SigEconomy](https://sigeconomy.com)** | Competitive operator-ranking arena — satellite leaderboard | Live |
-| 🔌 | **[sigrank-mcp](https://www.npmjs.com/package/sigrank)** | MCP server + CLI + TUI dashboard — 20+ tools any agent can call | `npm i -g sigrank` |
-| 🎯 | **[signa](https://github.com/SunrisesIllNeverSee/signa)** | Interactive coaching agent — reads your logs, builds a taste profile | `npx signa` |
-| 📈 | **[fundscore](https://www.npmjs.com/package/fundscore)** | Investor-readiness repo scorer | `npx fundscore` |
-| ⚖️ | **[Commitment Theory](https://github.com/SunrisesIllNeverSee/Commitment_Theory)** | 34-paper research program on the conservation law | CC-BY-4.0 |
-| 🏛️ | **[MO§ES™](https://mos2es.org)** | Governance framework for AI operator evaluation | Patent pending |
-| 🤖 | **[Signomy](https://signomy.xyz)** | Governed agent marketplace with bounty board | Live |
-| 🏢 | **[Application Hub](https://mos2es.xyz)** | Founder-first application infrastructure | Live |
+- [fundscore](https://www.npmjs.com/package/fundscore) — investor-readiness repo scorer.
+- [Application Hub](https://mos2es.xyz) — founder-first application infrastructure.
 
 ---
+
+<details>
+<summary>Research, provenance, and public records</summary>
 
 ## The receipts
 
@@ -141,11 +114,12 @@ Governed AI agent marketplace with constitutional governance baked into the HTTP
 | 🔬 **Zenodo DOIs** | [10.5281/zenodo.20029607](https://doi.org/10.5281/zenodo.20029607) · [10.5281/zenodo.19105225](https://doi.org/10.5281/zenodo.19105225) · [10.5281/zenodo.20031715](https://doi.org/10.5281/zenodo.20031715) |
 | 🎓 **ORCID** | [0009-0002-9904-5390](https://orcid.org/0009-0002-9904-5390) |
 | 🏢 **Entity** | Ello Cello LLC |
-| 📊 **Operators ranked** | 1,498 seeded operators + 50 users on the SigRank board |
 | 🌐 **Live domains** | signalaf.com · sigeconomy.com · mos2es.org · signomy.xyz · mos2es.xyz |
 | 🧪 **Coherence stress test** | 41% baseline → 80–85% measured (5-phase, rival AI architectures) |
 | 🎙️ **Live demos** | [KASSA voice AI](https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html) · [Signomy](https://signomy.xyz) |
 | 📰 **Public record** | Grok stress thread (339 exchanges, 13 days) · Stanford submission |
+
+</details>
 
 ---
 
@@ -159,6 +133,17 @@ Governed AI agent marketplace with constitutional governance baked into the HTTP
 
 ---
 
+<details>
+<summary>GitHub activity</summary>
+
 <div align="center">
-  <sub>Last updated: September 2026</sub>
+  <img src="metrics.svg" width="640" alt="GitHub activity and repository metrics" />
+</div>
+
+</details>
+
+---
+
+<div align="center">
+  <sub>Updated October 16, 2026 · Current package version and public results are linked above.</sub>
 </div>
