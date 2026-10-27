@@ -1,21 +1,16 @@
-<!-- Architecture cards are separate linked images because GitHub sanitizes SVG maps inside a single <img>. -->
+<!-- One continuous GitHub-safe visual. Individual panels cannot have
+separate hotspots in an <img> on GitHub; use the direct project links below. -->
 <div align="center">
-  <a href="https://github.com/SunrisesIllNeverSee/Commitment_Theory"><img src="arch-commitment.svg" width="58%" alt="Commitment Theory — click for the conservation law research" /></a>
-</div>
-<div align="center"><img src="arch-arrow.svg" width="100%" alt="Foundation feeds execution" /></div>
-<div align="center">
-  <a href="https://mos2es.com"><img src="arch-moses.svg" width="82%" alt="MO§ES — click to visit the governance platform" /></a>
-</div>
-<div align="center"><img src="arch-branches.svg" width="100%" alt="MO§ES connects three products" /></div>
-<div align="center">
-  <a href="https://signalaf.com"><img src="arch-signalaf.svg" width="32%" alt="SigRank and SignalAF — click to open the leaderboard" /></a>
-  <a href="https://aquaidp.xyz"><img src="arch-aqua.svg" width="32%" alt="AQUA — click to open the application platform" /></a>
-  <a href="https://signomy.xyz"><img src="arch-signomy.svg" width="32%" alt="Signomy — click to open the governed agent platform" /></a>
+  <img src="profile-unified.svg" width="960" alt="Unified architecture and full 53-week GitHub contribution heat map, rendered as one continuous black and dirty-gold visual." />
 </div>
 
-<div align="center">
-  <img src="contributions.svg" width="100%" alt="Complete 53-week GitHub contribution heat map in black and dirty gold" />
-</div>
+<p align="center">
+  <a href="https://github.com/SunrisesIllNeverSee/Commitment_Theory"><img alt="Commitment Theory" src="https://img.shields.io/badge/COMMITMENT-THEORY-57452b?style=flat-square"/></a>
+  <a href="https://mos2es.com"><img alt="MO§ES" src="https://img.shields.io/badge/MO%C2%A7ES-CORE-c4923a?style=flat-square"/></a>
+  <a href="https://signalaf.com"><img alt="SignalAF" src="https://img.shields.io/badge/SIGNALAF-LEADERBOARD-c4923a?style=flat-square"/></a>
+  <a href="https://aquaidp.xyz"><img alt="AQUA" src="https://img.shields.io/badge/AQUA-APPLICATIONS-57452b?style=flat-square"/></a>
+  <a href="https://signomy.xyz"><img alt="Signomy" src="https://img.shields.io/badge/SIGNOMY-AGENTS-57452b?style=flat-square"/></a>
+</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/sigrank"><img alt="sigrank npm" src="https://img.shields.io/npm/v/sigrank.svg?style=flat-square"/></a>
