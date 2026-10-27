@@ -15,8 +15,8 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 BG="#0a0a0a"; INSET="#14110e"; PANEL="#19150e"; GOLD="#c4923a"
-GOLD_LIGHT="#e9c277"; GOLD_DARK="#57452b"; TEXT="#e8e0d4"; MUTED="#a7977c"
-DULL="#776a58"; SHADOW="#272016"
+GOLD_LIGHT="#e9c277"; GOLD_DARK="#57452b"; TEXT="#e8e0d4"; MUTED="#c0ae90"
+DULL="#9f8968"; SHADOW="#272016"
 FONT="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
 
 def txt(x,y,s,size=15,color=TEXT,weight=400,anchor="start",spacing=0):
@@ -57,56 +57,62 @@ def arrow_down(x,y):
     return f'<polygon points="{x-5},{y-7} {x+5},{y-7} {x},{y}" fill="{GOLD}"/>'
 
 def architecture():
-    o=root_svg(960,648,"Portfolio system architecture","Commitment Theory provides the conservation law; MO§ES is the shared governing execution substrate; SignalAF, AQUA and Signomy are product surfaces, with TTEOP and Upsilon supporting operator measurement.")
-    o += [rect(18,18,924,612,"none",GOLD_DARK,2,1),
-          txt(42,49,"THE SYSTEM  /  ARCHITECTURE MAP",18,GOLD_LIGHT,700,spacing=1.3),
-          txt(918,48,"01 / PORTFOLIO",11,MUTED,500,"end"),
-          line(42,64,918,64,GOLD_DARK,1)]
-    # Law layer
-    o += [rect(255,91,450,96,INSET,GOLD_DARK,8,2),
-          pix_hex(273,113,PATTERNS[1]),
-          txt(480,115,"FOUNDATION / CONSERVATION LAW",11,GOLD,650,"middle",1.2),
-          txt(480,146,"COMMITMENT THEORY",26,TEXT,750,"middle"),
-          txt(480,169,"Preserve binding meaning through transformation",12,MUTED,400,"middle")]
-    # The central substrate
-    o += [line(480,188,480,213,GOLD,2),arrow_down(480,217),
-          rect(144,221,672,121,PANEL,GOLD,9,2.7),
-          rect(156,232,648,98,"none",GOLD_DARK,5,0.8),
-          pix_hex(175,250,PATTERNS[0]),
-          txt(480,250,"SHARED EXECUTION SUBSTRATE",12,GOLD_LIGHT,680,"middle",1.1),
-          txt(480,290,"MO§ES",38,TEXT,800,"middle"),
-          txt(480,314,"Commitments  ·  temporal gates  ·  lineage  ·  provenance",13,MUTED,400,"middle")]
-    # Branch buses
-    o += [line(480,342,480,371,GOLD,2),
-          line(170,371,790,371,GOLD_DARK,2),
-          line(170,371,170,392,GOLD_DARK,2),
-          line(480,371,480,392,GOLD_DARK,2),
-          line(790,371,790,392,GOLD_DARK,2),
-          arrow_down(170,399),arrow_down(480,399),arrow_down(790,399)]
-    cards=[
-        (35,"01 / OPERATOR INTELLIGENCE","SIGRANK / SIGNALAF",
-         "TTEOP telemetry  ·  Upsilon B2B pilot",
-         "Measurement → ranking → public proof",PATTERNS[0]),
-        (346,"02 / ANSWER MEMORY","AQUA",
-         "Universal knowledge  ·  local-first",
-         "Approved answers → application flows",PATTERNS[2]),
-        (657,"03 / AGENT ECONOMY","SIGNOMY",
-         "CIVITAE runtime  ·  mission controls",
-         "Agent roles → accountable execution",PATTERNS[3])
+    """Large-type, GitHub-width architecture. Keep the distinct product surfaces."""
+    o=root_svg(960,684,"MO§ES portfolio architecture",
+        "Commitment Theory provides the conservation law. MO§ES is the shared "
+        "execution substrate. SignalAF/SigRank, AQUA and Signomy are distinct "
+        "products; TTEOP and the Upsilon pilot support operator intelligence.")
+    o += [
+        rect(18,18,924,640,"none",GOLD_DARK,4,1.3),
+        txt(44,54,"SYSTEM ARCHITECTURE",24,GOLD_LIGHT,790,spacing=.9),
+        txt(917,52,"01 / PORTFOLIO",14,MUTED,650,"end"),
+        line(44,70,916,70,GOLD_DARK,1.2),
+        # Foundation
+        rect(231,94,498,116,INSET,GOLD_DARK,7,2),
+        pix_hex(249,111,PATTERNS[1]),
+        txt(480,120,"FOUNDATION  /  CONSERVATION",15,GOLD,750,"middle",.7),
+        txt(480,164,"COMMITMENT THEORY",31,TEXT,800,"middle"),
+        txt(480,191,"Binding meaning through transformation",16,MUTED,440,"middle"),
+        line(480,210,480,230,GOLD,2.6),arrow_down(480,239),
+        # Shared substrate
+        rect(131,243,698,141,PANEL,GOLD,8,2.7),
+        rect(141,253,678,121,"none",GOLD_DARK,5,.8),
+        pix_hex(158,270,PATTERNS[0]),
+        txt(480,273,"SHARED EXECUTION SUBSTRATE",16,GOLD_LIGHT,750,"middle",.8),
+        txt(480,326,"MO§ES",48,TEXT,820,"middle"),
+        txt(480,358,"Temporal gates  ·  commitments  ·  lineage  ·  provenance",16,MUTED,470,"middle"),
+        # Bus
+        line(480,384,480,410,GOLD,2.5),
+        line(172,410,788,410,GOLD_DARK,2),
     ]
-    for x,kicker,title,sub1,sub2,pattern in cards:
-        o += [rect(x,406,268,157,INSET,GOLD_DARK,7,1.7),
-              rect(x+1,406,266,5,GOLD_DARK,r=1),
-              txt(x+134,437,kicker,10,GOLD_LIGHT,700,"middle",.2),
-              pix_hex(x+207,414,pattern),
-              txt(x+134,480,title,19,TEXT,800,"middle"),
-              txt(x+134,516,sub1,10,MUTED,400,"middle"),
-              txt(x+134,537,sub2,10,DULL,400,"middle")]
-    o += [line(42,586,918,586,GOLD_DARK,1),
-          txt(480,610,"ONE SHARED GOVERNANCE / VERIFICATION LAYER   •   DISTINCT PRODUCT INTERFACES",12,GOLD_LIGHT,600,"middle",.15),
-          txt(480,626,"Pixel motifs adapted from the SigRank 3×3 visual language; not earned badges.",10,DULL,400,"middle"),'</svg>']
+    for x in (172,480,788):
+        o.extend((line(x,410,x,434,GOLD_DARK,2),arrow_down(x,442)))
+    cards=[
+       (35,"01  /  INTELLIGENCE","SIGRANK / SIGNALAF",
+        "Compare AI operators","TTEOP  ·  Upsilon B2B",PATTERNS[0],22),
+       (346,"02  /  ANSWER MEMORY","AQUA",
+        "Reuse approved answers","Local-first  ·  applications",PATTERNS[2],29),
+       (657,"03  /  AGENT ECONOMY","SIGNOMY",
+        "Governed agent teamwork","CIVITAE  ·  missions  ·  roles",PATTERNS[3],29),
+    ]
+    for x,kicker,title,sub1,sub2,pattern,heading in cards:
+        mid=x+134
+        o += [
+            rect(x,448,268,171,INSET,GOLD_DARK,8,1.9),
+            rect(x+1,448,266,5,GOLD_DARK,r=1),
+            pix_hex(x+8,455,pattern),
+            txt(mid,478,kicker,14,GOLD_LIGHT,740,"middle",.3),
+            txt(mid,527,title,heading,TEXT,800,"middle"),
+            line(x+31,543,x+237,543,GOLD_DARK,1),
+            txt(mid,569,sub1,16,MUTED,460,"middle"),
+            txt(mid,596,sub2,14,DULL,460,"middle"),
+        ]
+    o += [
+        line(44,636,916,636,GOLD_DARK,1),
+        txt(480,660,"ONE GOVERNED SYSTEM   /   THREE PRODUCT SURFACES",16,GOLD_LIGHT,730,"middle",.35),
+        '</svg>'
+    ]
     (ROOT/"portfolio-architecture.svg").write_text('\n'.join(o)+"\n",encoding="utf-8")
-
 
 def clickable_architecture():
     """README-compatible clickable modules, avoiding SVG image-map hotspot stripping."""
@@ -178,16 +184,16 @@ def compose_unified_profile():
     arch = inner("portfolio-architecture.svg", "arch")
     heat = inner("contributions.svg", "heat")
     out = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="960" height="932" '
-        'viewBox="0 0 960 932" role="img" aria-labelledby="profile-title profile-desc">',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="960" height="999" '
+        'viewBox="0 0 960 999" role="img" aria-labelledby="profile-title profile-desc">',
         '<title id="profile-title">Architecture and full contribution calendar</title>',
         '<desc id="profile-desc">Black and dirty-gold portfolio architecture: Commitment Theory '
         'through MO§ES to SignalAF, AQUA and Signomy, followed by the full 53-week '
         'GitHub contribution calendar. Use the directly linked project badges below '
         'the diagram to open each destination.</desc>',
-        rect(0,0,960,932,BG),
+        rect(0,0,960,999,BG),
         '<g id="architecture-panel">', arch, '</g>',
-        '<g id="contribution-panel" transform="translate(0 648)">', heat, '</g>',
+        '<g id="contribution-panel" transform="translate(0 684)">', heat, '</g>',
         '</svg>'
     ]
     (ROOT / "profile-unified.svg").write_text("\n".join(out)+"\n", encoding="utf-8")
@@ -213,16 +219,22 @@ def heatmap():
         if v<=cuts[1]:return shades[2]
         if v<=cuts[2]:return shades[3]
         return shades[4]
-    o=root_svg(960,284,"Complete GitHub contribution heat map","All 53 weeks of the GitHub contribution calendar, from "+flat[0]["date"]+" to "+flat[-1]["date"]+", in the black and dirty-gold palette.")
-    o += [rect(18,18,924,247,"none",GOLD_DARK,3,1),
-          txt(40,48,"CONTRIBUTION FIELD  /  53 WEEKS",17,GOLD_LIGHT,700,spacing=.9),
-          txt(919,48,f'{d["totalContributions"]:,} CONTRIBUTIONS',13,GOLD,700,"end"),
-          line(40,62,920,62,GOLD_DARK,1)]
+    o=root_svg(960,315,"Full GitHub contribution heat map",
+      "Complete GitHub contribution calendar from "+flat[0]["date"]+" to "+flat[-1]["date"]+".")
+    o += [
+      rect(18,5,924,294,"none",GOLD_DARK,4,1.3),
+      txt(44,47,"CONTRIBUTION FIELD",23,GOLD_LIGHT,770,spacing=.5),
+      txt(918,47,f'{d["totalContributions"]:,}  CONTRIBUTIONS',19,GOLD,750,"end"),
+      line(44,64,916,64,GOLD_DARK,1.2),
+    ]
     first=dt.date.fromisoformat(flat[0]["date"]);last=dt.date.fromisoformat(flat[-1]["date"])
-    o += [txt(40,82,first.strftime("%d %b %Y")+" — "+last.strftime("%d %b %Y"),11,MUTED),
-          txt(41,120,"SUN",10,DULL),txt(41,163,"WED",10,DULL),txt(41,206,"SAT",10,DULL)]
-    left=116; top=104; step=14.65; square=11.5
-    # Labels use the first available day for each new month.
+    o += [
+      txt(44,92,first.strftime("%d %b %Y")+"  —  "+last.strftime("%d %b %Y"),14,MUTED,490),
+      txt(48,133,"SUN",12,MUTED,640),
+      txt(48,178,"WED",12,MUTED,640),
+      txt(48,220,"SAT",12,MUTED,640),
+    ]
+    left=118; top=121; step=14.8; square=12.1
     used=set()
     for wi,wk in enumerate(weeks):
         for day in wk["contributionDays"]:
@@ -230,18 +242,20 @@ def heatmap():
             mon=(date.year,date.month)
             if mon not in used and date.day<=7:
                 used.add(mon)
-                o.append(txt(round(left+wi*step,2),93,date.strftime("%b").upper(),10,MUTED,600))
+                o.append(txt(round(left+wi*step,2),109,date.strftime("%b").upper(),12,MUTED,600))
             x=left+wi*step
             row=(date.weekday()+1)%7
             y=top+row*step
             count=day["contributionCount"]
-            o.append(f'<rect x="{x:.2f}" y="{y:.2f}" width="{square}" height="{square}" rx="1.4" fill="{shade(count)}" stroke="#3d3325" stroke-width=".35"><title>{escape(day["date"])}: {count} contributions</title></rect>')
-    o += [line(40,226,920,226,GOLD_DARK,1),
-          txt(40,248,"SOURCE  GitHub contribution calendar  /  full-year snapshot",10,MUTED,500),
-          txt(728,248,"LESS",10,DULL,550)]
-    for k,color in enumerate(shades):
-        o.append(rect(765+k*22,237,14,14,color,r=2))
-    o += [txt(919,248,"MORE",10,MUTED,550,"end"),'</svg>']
+            o.append(f'<rect x="{x:.2f}" y="{y:.2f}" width="{square}" height="{square}" rx="1.7" fill="{shade(count)}" stroke="#3d3325" stroke-width=".35"><title>{escape(day["date"])}: {count} contributions</title></rect>')
+    o += [
+        line(44,244,916,244,GOLD_DARK,1),
+        txt(44,271,"SOURCE / GitHub contribution calendar",13,MUTED,480),
+        txt(740,271,"LESS",12,DULL,550)
+    ]
+    for i,color in enumerate(shades):
+        o.append(rect(776+i*23,259,16,16,color,r=2))
+    o += [txt(916,271,"MORE",12,MUTED,570,"end"),'</svg>']
     (ROOT/"contributions.svg").write_text('\n'.join(o)+"\n",encoding="utf-8")
     return {"weeks":len(weeks),"days":len(flat),"totalContributions":d["totalContributions"],"sumDaily":sum(x["contributionCount"] for x in flat),"first":flat[0]["date"],"last":flat[-1]["date"],"quantiles":cuts}
 
