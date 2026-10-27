@@ -161,6 +161,37 @@ def clickable_architecture():
     a.append("</svg>")
     (ROOT/"arch-branches.svg").write_text("\n".join(a)+"\n",encoding="utf-8")
 
+
+def compose_unified_profile():
+    """One self-contained SVG replaces eight independently rendered README blocks."""
+    def inner(path, prefix):
+        src = (ROOT / path).read_text(encoding="utf-8")
+        body = src.split(">", 1)[1].rsplit("</svg>", 1)[0]
+        for original, replacement in (
+            ('id="ttl"', f'id="{prefix}-ttl"'),
+            ('id="dsc"', f'id="{prefix}-dsc"'),
+            ('id="dots"', f'id="{prefix}-dots"'),
+            ('url(#dots)', f'url(#{prefix}-dots)'),
+        ):
+            body = body.replace(original, replacement)
+        return body
+    arch = inner("portfolio-architecture.svg", "arch")
+    heat = inner("contributions.svg", "heat")
+    out = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="960" height="932" '
+        'viewBox="0 0 960 932" role="img" aria-labelledby="profile-title profile-desc">',
+        '<title id="profile-title">Architecture and full contribution calendar</title>',
+        '<desc id="profile-desc">Black and dirty-gold portfolio architecture: Commitment Theory '
+        'through MO§ES to SignalAF, AQUA and Signomy, followed by the full 53-week '
+        'GitHub contribution calendar. Use the directly linked project badges below '
+        'the diagram to open each destination.</desc>',
+        rect(0,0,960,932,BG),
+        '<g id="architecture-panel">', arch, '</g>',
+        '<g id="contribution-panel" transform="translate(0 648)">', heat, '</g>',
+        '</svg>'
+    ]
+    (ROOT / "profile-unified.svg").write_text("\n".join(out)+"\n", encoding="utf-8")
+
 def load_calendar():
     query='query { user(login: "SunrisesIllNeverSee") { contributionsCollection { contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } } } } }'
     run=subprocess.run(["gh","api","graphql","-f","query="+query],check=True,capture_output=True,text=True)
@@ -223,3 +254,5 @@ if __name__=="__main__":
         print("GENERATED",json.dumps(stats))
     else:
         print("GENERATED architecture and linked panels; heatmap unchanged")
+    compose_unified_profile()
+    print("GENERATED unified visual")
