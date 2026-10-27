@@ -65,17 +65,17 @@ def architecture():
     # Law layer
     o += [rect(255,91,450,96,INSET,GOLD_DARK,8,2),
           pix_hex(273,113,PATTERNS[1]),
-          txt(333,115,"FOUNDATION / CONSERVATION LAW",11,GOLD,650,spacing=1.2),
-          txt(333,146,"COMMITMENT THEORY",26,TEXT,750),
-          txt(333,169,"Preserve binding meaning through transformation",12,MUTED)]
+          txt(480,115,"FOUNDATION / CONSERVATION LAW",11,GOLD,650,"middle",1.2),
+          txt(480,146,"COMMITMENT THEORY",26,TEXT,750,"middle"),
+          txt(480,169,"Preserve binding meaning through transformation",12,MUTED,400,"middle")]
     # The central substrate
     o += [line(480,188,480,213,GOLD,2),arrow_down(480,217),
           rect(144,221,672,121,PANEL,GOLD,9,2.7),
           rect(156,232,648,98,"none",GOLD_DARK,5,0.8),
           pix_hex(175,250,PATTERNS[0]),
-          txt(241,250,"SHARED EXECUTION SUBSTRATE",12,GOLD_LIGHT,680,spacing=1.1),
-          txt(241,290,"MO§ES",38,TEXT,800),
-          txt(242,314,"Commitments  ·  temporal gates  ·  lineage  ·  provenance",13,MUTED)]
+          txt(480,250,"SHARED EXECUTION SUBSTRATE",12,GOLD_LIGHT,680,"middle",1.1),
+          txt(480,290,"MO§ES",38,TEXT,800,"middle"),
+          txt(480,314,"Commitments  ·  temporal gates  ·  lineage  ·  provenance",13,MUTED,400,"middle")]
     # Branch buses
     o += [line(480,342,480,371,GOLD,2),
           line(170,371,790,371,GOLD_DARK,2),
@@ -97,15 +97,69 @@ def architecture():
     for x,kicker,title,sub1,sub2,pattern in cards:
         o += [rect(x,406,268,157,INSET,GOLD_DARK,7,1.7),
               rect(x+1,406,266,5,GOLD_DARK,r=1),
-              txt(x+17,437,kicker,10,GOLD_LIGHT,700,spacing=.3),
+              txt(x+134,437,kicker,10,GOLD_LIGHT,700,"middle",.2),
               pix_hex(x+207,414,pattern),
-              txt(x+17,480,title,20,TEXT,800),
-              txt(x+17,516,sub1,11,MUTED),
-              txt(x+17,537,sub2,10,DULL)]
+              txt(x+134,480,title,19,TEXT,800,"middle"),
+              txt(x+134,516,sub1,10,MUTED,400,"middle"),
+              txt(x+134,537,sub2,10,DULL,400,"middle")]
     o += [line(42,586,918,586,GOLD_DARK,1),
           txt(480,610,"ONE SHARED GOVERNANCE / VERIFICATION LAYER   •   DISTINCT PRODUCT INTERFACES",12,GOLD_LIGHT,600,"middle",.15),
           txt(480,626,"Pixel motifs adapted from the SigRank 3×3 visual language; not earned badges.",10,DULL,400,"middle"),'</svg>']
     (ROOT/"portfolio-architecture.svg").write_text('\n'.join(o)+"\n",encoding="utf-8")
+
+
+def clickable_architecture():
+    """README-compatible clickable modules, avoiding SVG image-map hotspot stripping."""
+    # Each image is wrapped by its own anchor in README. Thus links work even
+    # though GitHub displays SVG assets as embedded <img> elements.
+    common_desc = "Clickable module from the black/dirty-gold portfolio architecture."
+    tiles = [
+        ("arch-commitment.svg", 560, 112, "COMMITMENT THEORY",
+         "FOUNDATION / CONSERVATION LAW", "Preserve binding meaning through transformation",
+         PATTERNS[1], 24, GOLD_DARK),
+        ("arch-moses.svg", 780, 136, "MO§ES", "SHARED EXECUTION SUBSTRATE",
+         "Commitments  ·  temporal gates  ·  lineage  ·  provenance",
+         PATTERNS[0], 33, GOLD),
+        ("arch-signalaf.svg", 305, 172, "SIGRANK / SIGNALAF",
+         "01 / OPERATOR INTELLIGENCE", "TTEOP telemetry · Upsilon B2B pilot",
+         PATTERNS[0], 19, GOLD_DARK),
+        ("arch-aqua.svg", 305, 172, "AQUA",
+         "02 / ANSWER MEMORY", "Local-first application knowledge",
+         PATTERNS[2], 23, GOLD_DARK),
+        ("arch-signomy.svg", 305, 172, "SIGNOMY",
+         "03 / AGENT ECONOMY", "CIVITAE runtime · mission controls",
+         PATTERNS[3], 23, GOLD_DARK),
+    ]
+    for name,w,h,title,kicker,desc,pattern,tsize,border in tiles:
+        o = root_svg(w,h,title,common_desc)
+        o += [rect(4,4,w-8,h-8,PANEL,border,7,2),
+              rect(13,13,w-26,h-26,"none",GOLD_DARK,5,.7)]
+        if w < 400:
+            o += [rect(8,8,w-16,5,GOLD_DARK,r=1),
+                  pix_hex(w-59,13,pattern),
+                  txt(w/2,37,kicker,10,GOLD_LIGHT,700,"middle",.2),
+                  txt(w/2,97,title,tsize,TEXT,800,"middle"),
+                  txt(w/2,139,desc,10,MUTED,400,"middle"),
+                  txt(w/2,154,"CLICK TO OPEN  ↗",9,GOLD,600,"middle")]
+        else:
+            o += [pix_hex(29,25,pattern),
+                  txt(w/2,34,kicker,11,GOLD_LIGHT,700,"middle",1),
+                  txt(w/2,79,title,tsize,TEXT,800,"middle"),
+                  txt(w/2,h-16,desc,11,MUTED,400,"middle")]
+        o.append("</svg>")
+        (ROOT/name).write_text("\n".join(o)+"\n",encoding="utf-8")
+    # Separate, simple connector files for responsive Markdown/HTML layout.
+    # SVG elements themselves are not interactive; only the linked panels are.
+    a=root_svg(960,38,"Vertical architecture connection","A gold arrow from law to execution.")
+    a += [line(480,0,480,27,GOLD,2),arrow_down(480,35),"</svg>"]
+    (ROOT/"arch-arrow.svg").write_text("\n".join(a)+"\n",encoding="utf-8")
+    a=root_svg(960,68,"Execution to product branches",
+         "Shared substrate connects to all three product surfaces.")
+    a += [line(480,0,480,22,GOLD,2),line(157,22,803,22,GOLD_DARK,2)]
+    for x in (157,480,803):
+        a += [line(x,22,x,55,GOLD_DARK,2),arrow_down(x,63)]
+    a.append("</svg>")
+    (ROOT/"arch-branches.svg").write_text("\n".join(a)+"\n",encoding="utf-8")
 
 def load_calendar():
     query='query { user(login: "SunrisesIllNeverSee") { contributionsCollection { contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } } } } }'
@@ -162,41 +216,10 @@ def heatmap():
 
 if __name__=="__main__":
     architecture()
-    stats=heatmap()
-    readme=ROOT/"README.md"
-    orig=readme.read_text()
-    anchor="## The architecture\n"
-    replacement="""## The architecture
-
-<div align="center">
-  <img src="portfolio-architecture.svg" width="960" alt="Portfolio system architecture: Commitment Theory above the MO§ES shared execution substrate; its branches reach SigRank and SignalAF with TTEOP and Upsilon, AQUA, and Signomy." />
-</div>
-
-"""
-    if 'src="portfolio-architecture.svg"' not in orig:
-        if anchor not in orig:raise RuntimeError("Architecture section not found")
-        orig=orig.replace(anchor,replacement,1)
-    anchor2='<details>\n<summary>GitHub activity</summary>'
-    addition="""## Full contribution heat map
-
-<div align="center">
-  <img src="contributions.svg" width="960" alt="Full 53-week GitHub contribution calendar with every day rendered in black and dirty gold." />
-</div>
-
-<sub>Complete 53-week GitHub contribution calendar, captured October 27, 2026. This is a dated snapshot; the existing GitHub activity graphic continues to update separately.</sub>
-
----
-
-"""
-    if 'src="contributions.svg"' not in orig:
-        if anchor2 not in orig:raise RuntimeError("GitHub activity section not found")
-        orig=orig.replace(anchor2,addition+anchor2,1)
-    # Keep the snapshot label accurate on subsequent manual refreshes.
-    latest = dt.date.fromisoformat(stats["last"])
-    stamp = f"{latest.strftime('%B')} {latest.day}, {latest.year}"
-    import re
-    orig = re.sub(r"captured [A-Za-z]+ \d{1,2}, \d{4}\.", f"captured {stamp}.", orig)
-    readme.write_text(orig)
-    print("CREATED",json.dumps(stats))
-    print("FILES",[(p.name,p.stat().st_size) for p in (ROOT/"portfolio-architecture.svg",ROOT/"contributions.svg",readme)])
-
+    clickable_architecture()
+    import sys
+    if "--architecture-only" not in sys.argv:
+        stats=heatmap()
+        print("GENERATED",json.dumps(stats))
+    else:
+        print("GENERATED architecture and linked panels; heatmap unchanged")
