@@ -20,6 +20,11 @@ npx sigrank
 
 ## The architecture
 
+<div align="center">
+  <img src="portfolio-architecture.svg" width="960" alt="Portfolio system architecture: Commitment Theory above the MO§ES shared execution substrate; its branches reach SigRank and SignalAF with TTEOP and Upsilon, AQUA, and Signomy." />
+</div>
+
+
 **MO§ES™ governs. Upsilon measures. SigRank publishes the public leaderboard and proof surface on SignalAF.** [TTEOP](https://github.com/SunrisesIllNeverSee/otep-spec) defines the protocol semantics.
 
 Measurement uses four token pillars: input, output, cache-write, and cache-read. Prompt text, response text, and source code are not required for ranked telemetry. Signed submissions also carry identity, device/signature, platform, and report metadata; see the [submission privacy details](https://github.com/SunrisesIllNeverSee/sigrank-mcp#privacy).
@@ -130,6 +135,16 @@ Governed AI agent marketplace with constitutional governance baked into the HTTP
 `C(T(S)) ≈ C(S)` · `Υ = (cache_read × output) / input²`
 
 </div>
+
+---
+
+## Full contribution heat map
+
+<div align="center">
+  <img src="contributions.svg" width="960" alt="Full 53-week GitHub contribution calendar with every day rendered in black and dirty gold." />
+</div>
+
+<sub>Complete 53-week GitHub contribution calendar, captured October 27, 2026. This is a dated snapshot; the existing GitHub activity graphic continues to update separately.</sub>
 
 ---
 
